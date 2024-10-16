@@ -33,9 +33,7 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-app.get('*', (req, res, next) => {
-    return res.sendFile(path.join(staticDir, 'index.html'))
-  });
+
 
 //apis
 app.use("/api/v1/user", userRouter);
@@ -49,6 +47,10 @@ app.use("/api/v1/application", applicationRouter)
 //         success : true
 //     })
 // })
+
+app.get('*', (req, res, next) => {
+    return res.sendFile(path.join(staticDir, 'index.html'))
+  });
 
 app.listen(PORT, ()=>{
     connectDB();
