@@ -9,17 +9,20 @@ import companyRouter from "./routes/company.route.js"
 import jobRouter from "./routes/job.route.js"
 import applicationRouter from "./routes/appliction.route.js"
 dotenv.config({})
-// import { fileURLToPath } from 'url';
-// import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
 
 
 const app = express();
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-// const staticDir = path.join(__dirname, '..', 'frontend', 'dist')
+const __filename = fileURLToPath(import.meta.url);
 
-// app.use(express.static(staticDir))
+const __dirname = dirname(__filename);
+
+const staticDir = path.join(__dirname, '..', 'frontend', 'dist')
+
+
+app.use(express.static(staticDir))
 
 const PORT = process.env.PORT || 3000;
 
@@ -48,9 +51,9 @@ app.get("/", (req, res)=>{
     })
 })
 
-// app.get('*', (req, res, next) => {
-//     return res.sendFile(path.join(staticDir, 'index.html'))
-//   });
+app.get('*', (req, res, next) => {
+    return res.sendFile(path.join(staticDir, 'index.html'))
+  });
 
 app.listen(PORT, ()=>{
     connectDB();
