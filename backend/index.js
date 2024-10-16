@@ -19,7 +19,7 @@ const app = express();
 // const __dirname = dirname(__filename);
 // const staticDir = path.join(__dirname, '..', 'frontend', 'dist')
 
-app.use(express.static(staticDir))
+// app.use(express.static(staticDir))
 
 const PORT = process.env.PORT || 3000;
 
