@@ -41,12 +41,12 @@ app.use("/api/v1/company", companyRouter);
 app.use("/api/v1/job", jobRouter);
 app.use("/api/v1/application", applicationRouter)
 
-// app.get("/", (req, res)=>{
-//     return res.status(200).json({
-//         message : "server up",
-//         success : true
-//     })
-// })
+app.get("/", (req, res)=>{
+    return res.status(200).json({
+        message : "server up",
+        success : true
+    })
+})
 
 // app.get('*', (req, res, next) => {
 //     return res.sendFile(path.join(staticDir, 'index.html'))
