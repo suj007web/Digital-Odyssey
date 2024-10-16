@@ -1,0 +1,16 @@
+{
+  "name": "digitalodyssey",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd ./backend && npm i && cd ../frontend && npm i && npm run build",
+    "start": "cd ./backend && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "digitalodyssey": "file:"
+  }
+}
