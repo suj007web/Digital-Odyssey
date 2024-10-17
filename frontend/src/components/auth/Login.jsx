@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { RadioGroup } from "../ui/radio-group";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const Login = () => {
     role: "",
   });
   
-  const { loading } = useSelector((store) => store.auth);
+  const { loading, user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const backendurl = import.meta.env.VITE_BACKEND_URL;
@@ -50,6 +50,13 @@ const Login = () => {
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
+
+
+  useEffect(()=>{
+    if(user){
+      navigate("/")
+    }
+  }, [user,navigate])
 
   return (
     <div className="bg-black min-h-screen flex items-center justify-center px-4 md:px-0">
