@@ -43,7 +43,7 @@ const Applicants = () => {
               Applicants
             </h1>
             <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Total: {applicants.application.length}
+              Total: {applicants?.application?.length ?? 0}
             </span>
           </div>
         </motion.div>

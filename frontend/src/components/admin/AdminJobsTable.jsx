@@ -22,7 +22,7 @@ const AdminJobsTable = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const filteredJobs = allAdminJobs.length >= 0 && allAdminJobs.filter((job) => {
+    const filteredJobs = allAdminJobs?.length >= 0 && allAdminJobs.filter((job) => {
       if (!searchJobByText) {
         return true;
       }
@@ -45,7 +45,7 @@ const AdminJobsTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {allAdminJobs && allAdminJobs.length <= 0 ? (
+          {allAdminJobs?.length <= 0 ? (
             <TableRow>
               <TableCell colSpan={5} className="text-center text-lg  py-8 animate-fade-in">
                 No Jobs found
